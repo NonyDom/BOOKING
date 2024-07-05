@@ -1,0 +1,38 @@
+﻿@model Bookme.ViewModels.BookingFormViewModel 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="main">
+    <div class="containercontainer-fluid mt-5 ml-0 p-5">
+        <h1>Welcome @User?.Identity?.Name !  </h1>
+        <div class="row">
+            <div class="card col-sm-12 col-lg-3 p-3 mx-5 mt-2 text-dark text-center">
+                <h4>Total Bookings</h4>
+                <h6> @Model?.TotalBooking</h6>
+            </div>
+            <div class="card col-sm-12 col-lg-3 p-3 mx-5 mt-2 text-dark text-center">
+                <h4>Approved Bookings</h4>
+                <h6>@Model?.TotalApprovedBooking</h6>
+            </div>
+            <div class="card col-sm-12 col-lg-3 p-3 mx-5 mt-2 text-dark text-center">
+                <h4>Declined Bookings</h4>
+                <h6>@Model?.TotalDeclinedBooking</h6>
+            </div>
+            <div class="card col-sm-12 col-lg-3 p-3 mx-5 mt-5 text-dark text-center">
+                <h4>Cancelled Bookings</h4>
+                <h6>@Model?.TotalCancelledBooking</h6>
+            </div>
+            <div class="card col-sm-12 col-lg-3 p-3 mx-5 mt-5 text-dark text-center">
+                <h4>Pending Bookings</h4>
+                <h6>@Model?.TotalPendingBooking</h6>
+            </div>
+        </div>
+        <div class=" mt-4 mb-4">
+            <a type="button" class="btn text-white mt-3" style="background-color: #3CB371" asp-action="" asp-controller="Admin"><b>Change Availability</b></a>
+        </div>
+    </div>
+</div>
+
+

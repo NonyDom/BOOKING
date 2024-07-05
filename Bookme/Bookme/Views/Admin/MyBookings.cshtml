@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Bookme.ViewModels.BookingFormViewModel>
+@{
+    ViewData["Title"] = "MyBookings";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    body {
+        counter-reset: Serial;
+    }
+
+    tr td:first-child:before {
+        counter-increment: Serial;
+        content: counter(Serial);
+    }
+</style>
+<div id="main">
+    <div class="containercontainer-fluid mt-5 ml-0 p-5">
+        <h1>Welcome @User?.Identity?.Name !</h1>
+        <div class="container p-3">
+            <h3>My Bookings</h3>
+
+            <br /><br />
+
+            @if (Model != null && Model?.Count() > 0)
+            {
+                //add datatable
+                <div class="table-responsive" >
+                    <table class="table table-bordered table-striped text-dark" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>
+                                    SN
+                                </th>
+                                <th>
+                                    Booked By
+                                </th>
+                                <th>
+                                    Date Booked
+                                </th>
+                                <th>
+                                    Venue
+                                </th>
+                                <th>
+                                    State
+                                </th>
+                                <th>
+                                    Nature of Event
+                                </th>
+                                <th>
+                                    Event Date
+                                </th>
+                                <th>
+                                    Event Duration
+                                </th>
+                                <th>
+                                    Departure Time
+                                </th>
+                                <th class="text-center">
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var Booking in Model)
+                            {
+                                <tr>
+                                    <td></td>
+                                    <td width="20%">@Booking.BookedBy</td>
+                                    <td width="20%">@Booking.BookingDate.ToString("D")</td>
+                                    <td width="20%">@Booking.Venue</td>
+                                    <td width="20%">@Booking.State</td>
+                                    <td width="20%">@Booking.NatureOfEvent</td>
+                                    <td width="20%">@Booking.DateOfEvent</td>
+                                    <td width="20%">@Booking.DurationOfEvent</td>
+                                    <td width="20%">@Booking.DepartureTime</td>
+
+                                    <td width="20%" class="text-center">
+                                        @if (Booking.BookingStatus == Bookme.Database.Enum.BookingStatus.Pending)
+                                        {
+                                            <div class="w-100 btn-group" role="group">
+                                                <a class="btn btn-success mx-2" onclick="AcceptBooking('@Booking.Id')">
+                                                    Accept@* <i class="fa fa-pen-to-square"></i> *@
+                                                </a>
+                                                <a class="btn btn-secondary mx-2" onclick="DeclineBooking('@Booking.Id')">
+                                                    Decline@* <i class="fa fa-trash"></i> *@
+                                                </a>
+                                                <a class="btn btn-danger mx-1" onclick="CancelBooking('@Booking.Id')">
+                                                    Cancel
+                                                </a>
+                                            </div>
+                                        }
+                                        @if (Booking.BookingStatus == Bookme.Database.Enum.BookingStatus.Approved)
+                                        {
+                                            <div class="">
+                                                <a class="btn btn-danger" onclick="CancelBooking('@Booking.Id')">
+                                                    Cancel
+                                                </a>
+                                            </div>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+            }
+            else
+            {
+                <p> No Booking.</p>
+            }
+        </div>
+    </div>
+</div>
+
+
+

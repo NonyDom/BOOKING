@@ -1,0 +1,79 @@
+﻿ @model Bookme.ViewModels.BookingFormViewModel
+
+@{
+    ViewData["Title"] = "BookingForm";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="mt-3 p-5">
+        <div class=" text-dark text-center mt-5">
+            <h3><b>Enter your Booking Details</b></h3>
+        </div>
+
+        <div class="card mt- w-50 mx-auto mb-5">
+
+            <div class="card-body shadow">
+                <form method="post" asp-action="CreateBookingForm" asp-controller="Admin">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <input asp-for="BookedUserId" hidden />
+                    <div class="row">
+                        <div class="col-6 mt-3">
+                            <div class="form-group">
+                                <label asp-for="Venue" class="text-white"> Venue of Event: </label>
+                                <input type="text" asp-for="Venue" class="form-control" placeholder="Enter venue" name="Venue">
+                            </div>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <div class="form-group">
+                                <label class="text-white">State of Event:</label>
+                                <input type="text" asp-for="State" class="form-control" id="state" placeholder="Enter state" name="State">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mt-3">
+                            <div class="form-group">
+                                <label class="text-white">Nature of Event</label>
+                                <input type="text" asp-for="NatureOfEvent" class="form-control" id="nature" placeholder="Enter nature of event" name="NatureOfEvent">
+                                
+                            </div>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <div class="form-group">
+                                <label class="text-white">Date of Event:</label>
+                                <input type="date" asp-for="DateOfEvent" class="form-control" id="date" placeholder="Enter date" name="DateOfEvent">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mt-3">
+                            <div class="form-group">
+                                <label class="text-white">Duration of Event</label>
+                                <input type="text" asp-for="DurationOfEvent" class="form-control" id="duration" placeholder="Enter duration(days)" name="DurationOfEvent">
+                            </div>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <div class="form-group">
+                                <label class="text-white">Departure time:</label>
+                                <input type="text" asp-for="DepartureTime" class="form-control" id="departure" placeholder="Enter time(eg, 12:pm) " name="DepartureTime">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mt-3 text-right">
+                            <div class="form-group">
+                                <a class="btn btn-danger" asp-action="Booking" asp-controller="Admin">Back</a>
+                            </div>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Book now</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

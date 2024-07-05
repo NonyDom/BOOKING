@@ -1,0 +1,84 @@
+﻿@model Bookme.ViewModels.ApplicationUserViewModel
+
+@if (Model?.User != null)
+{
+    <div class="row">
+        <div class="col-12 text-center">
+            @if (Model?.User?.Image != null)
+            {
+                <img class="image-fluid rounded-circle mt-2 h-75 w-50" src="@Model?.User?.Image">
+            }
+            else
+            {
+                <img class="image-fluid  mt-2 w-50" src="~/Images/dm.png">
+            }
+        </div>
+    </div>
+    <div class="row text-dark">
+        <div class="col-sm-12 col-lg-6">
+            <p class="lead"><b> Full Name :</b> </p>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <p class="p"><b>@Model?.User?.FirstName  @Model?.User?.LastName</b> </p>
+        </div>
+    </div>
+    <div class="row text-dark">
+        <div class="col-sm-12 col-lg-6">
+            <p class="lead"><b> Address :</b> </p>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <p class="p"><b>@Model?.User?.Address</b> </p>
+        </div>
+    </div>
+    <div class="row text-dark">
+        <div class="col-sm-12 col-lg-6">
+            <p class="lead"><b> Email :</b> </p>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <p class="p"><b>@Model?.User?.Email</b> </p>
+        </div>
+    </div>
+    <div class="row text-dark">
+        <div class="col-sm-12 col-lg-6">
+            <p class="lead"><b> Phone Number :</b> </p>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <p class="p"><b>@Model?.User?.PhoneNumber</b> </p>
+        </div>
+    </div>
+    <div class="row text-dark">
+        <div class="col-sm-12 col-lg-6">
+            <p class="lead"><b> Category :</b> </p>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <p class="p"><b>@Model?.User?.Category</b> </p>
+        </div>
+    </div>
+    <div class="row text-dark">
+        <div class="col-sm-12 col-lg-6">
+            <p class="lead"><b> Price :</b> </p>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <p class="p"><b>@Model?.User?.Price</b> </p>
+        </div>
+    </div>
+    <div class="row text-dark">
+        <div class="col-sm-12 col-lg-6">
+            <p class="lead"><b> Bio :</b> </p>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <p class="p"><b>@Model?.User?.Bio</b> </p>
+        </div>
+    </div>
+    <div class="row text-dark">
+        <div class="col-sm-12 col-lg-6">
+            <p class="lead"><b> Music Specialization :</b> </p>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <p class="p"><b>@Model?.User?.MusicSpecialization</b> </p>
+        </div>
+    </div>
+}
+
+
+

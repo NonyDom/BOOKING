@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Login";
+
+}
+<style>
+ a{
+     text-decoration:none
+ }
+</style>
+
+    <div class="container row mx-auto mt-5 mb-5">
+       
+        <div class="mt-5 mb-4">
+            <div class="text-center">
+            <h1> <b>Welcome back</b></h1>
+            </div>
+            <h2 class="text-center">Login</h2>
+        </div>
+    <div class="container card shadow col-5" style="background-color: #F8F8FF">
+            <div class=" mt-4 mx-4" style="color:black">
+                <label><b>Email:</b></label>
+            <input type="text" style="border-color: black" class="form-control" id="email" placeholder="Enter email" name="">
+
+            </div>
+            <div class="mt-3 mx-4" style="color:black">
+                <label><b>Password:</b></label>
+                <input class="form-control" style="border-color: black" type="password" id="password" placeholder="Enter password"/>
+            </div>
+            <div class="row d-flex mx-3">
+                <div class="col-8" style="color:black">
+                    <h6>Don't have an account? <a asp-action="login" asp-controller="account">SignUp</a></h6>
+                </div>
+                <div class="col-4 text-end" >
+                    <a asp-action="forgetPassword" asp-controller="account">Forget Password?</a>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-dark text-white m-auto d-block px-4 mb-4" onclick="login()"><b>Login</b></button>
+            </div>
+
+        </div>
+    </div>
