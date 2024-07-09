@@ -17,9 +17,9 @@
 </style>
 <div id="main">
     <div class="containercontainer-fluid mt-5 ml-0 p-5">
-        <h1>Welcome @User?.Identity?.Name !</h1>
+        <h1 style="color:#4a0000;">Welcome @User?.Identity?.Name</h1>
         <div class="container p-3">
-            <h3>My Booking History</h3>
+            <h3 style="color:#4a0000;">My Booking History</h3>
 
             <br /><br />
 
@@ -30,37 +30,37 @@
                     <table class="table table-bordered table-striped text-dark" style="width:100%;">
                         <thead>
                             <tr>
-                                <th>
+                                <th style="color:#4a0000;">
                                     SN
                                 </th>
-                                <th>
+                                <th style="color:#4a0000;">
                                     Booked By
                                 </th>
-                                <th>
+                                <th style="color:#4a0000;">
                                     Booked User
                                 </th>
-                                <th>
+                                <th style="color:#4a0000;">
                                     Date Booked
                                 </th>
-                                <th>
+                                <th style="color:#4a0000;">
                                     Venue
                                 </th>
-                                <th>
+                                <th style="color:#4a0000;">
                                     State
                                 </th>
-                                <th>
+                                <th style="color:#4a0000;">
                                     Nature of Event
                                 </th>
-                                <th>
+                                <th style="color:#4a0000;">
                                     Event Date
                                 </th>
-                                <th>
+                                <th style="color:#4a0000;">
                                     Event Duration
                                 </th>
-                                <th>
+                                <th style="color:#4a0000;">
                                     Departure Time
                                 </th>
-                                <th class="text-center">
+                                <th class="text-center" style="color:#4a0000;">
                                     Actions
                                 </th>
                             </tr>
@@ -70,16 +70,16 @@
                             @foreach (var Booking in Model)
                             {
                                 <tr>
-                                    <td></td>
-                                    <td width="20%">@Booking.BookedBy</td>
-                                    <td width="20%">@Booking.BookedUserName</td>
-                                    <td width="20%">@Booking.BookingDate.ToString("D")</td>
-                                    <td width="20%">@Booking.Venue</td>
-                                    <td width="20%">@Booking.State</td>
-                                    <td width="20%">@Booking.NatureOfEvent</td>
-                                    <td width="20%">@Booking.DateOfEvent</td>
-                                    <td width="20%">@Booking.DurationOfEvent</td>
-                                    <td width="20%">@Booking.DepartureTime</td>
+                                    <td style="color:#4a0000;"></td>
+                                    <td width="20%" style="color:#4a0000;">@Booking.BookedBy</td>
+                                    <td width="20%" style="color:#4a0000;">@Booking.BookedUserName</td>
+                                    <td width="20%" style="color:#4a0000;">@Booking.BookingDate.ToString("D")</td>
+                                    <td width="20%" style="color:#4a0000;">@Booking.Venue</td>
+                                    <td width="20%" style="color:#4a0000;">@Booking.State</td>
+                                    <td width="20%" style="color:#4a0000;">@Booking.NatureOfEvent</td>
+                                    <td width="20%" style="color:#4a0000;">@Booking.DateOfEvent</td>
+                                    <td width="20%" style="color:#4a0000;">@Booking.DurationOfEvent</td>
+                                    <td width="20%" style="color:#4a0000;">@Booking.DepartureTime</td>
                                     <td width="20%" class="text-center">
                                         <div class="w-100 btn-group" role="group">
                                             @if (Booking.BookingStatus == Bookme.Database.Enum.BookingStatus.Approved)

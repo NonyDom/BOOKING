@@ -34,12 +34,12 @@
                 {
                     <div class="row" style="border-bottom:1px solid grey">
 
-                        <h4 class="mt-3 col-12 text-center"><b>@item.Key</b></h4>
+                        <h4 class="mt-3 col-12 text-center" style="color:#4a0000;"><b>@item.Key</b></h4>
                         @foreach (var categoryUser in item.Take(4))
                         {
                             <div class=" mb-3 mt-3 col-sm-12  col-lg-3" >
-                               
-                                <div class=" card  mt-3 text-dark  shadow mb-3">
+
+                                <div class=" card  mt-3 shadow mb-3" style="color:#4a0000;">
                                     @if (categoryUser.IsAvailable == true)
                                     {
                                         <a class=" badge badge-success mx-2 mt-3"> Available </a>
@@ -56,8 +56,8 @@
                                     {
                                         <img class="card-img-top rounded-circle  mt-2 h-50 w-50 mx-auto" src="~/Images/dm.png">
                                     }
-                                    
-                                    <div class="card-body">
+
+                                    <div class="card-body style=" color:#4a0000;"">
                                         <h4 class="card-title">@categoryUser.FirstName  @categoryUser.LastName</h4>
                                         <div>
                                             <p>
@@ -68,14 +68,14 @@
                                         </div>
                                         @if (categoryUser.IsAvailable == true)
                                         {
-                                            <a class="btn text-white" style="background-color: #3CB371" asp-action="BookingForm" asp-controller="Admin" asp-route-id="@categoryUser.Id">Bookme</a>
-                                            <a class="btn text-white float-right" style="background-color: #3CB371" data-toggle="modal" data-target="#userDetails" onclick="viewBookedDetails('@categoryUser.Id')"><i class="fa fa-eye"></i></a>
+                                            <a class="btn text-white" style="background-color:#4a0000;" asp-action="BookingForm" asp-controller="Admin" asp-route-id="@categoryUser.Id">Bookme</a>
+                                            <a class="btn text-white float-right" style="background-color:#4a0000;" data-toggle="modal" data-target="#userDetails" onclick="viewBookedDetails('@categoryUser.Id')"><i class="fa fa-eye"></i></a>
 
                                         }
                                         else
                                         {
                                             <button class="btn text-white btn-outline-dark" style="background-color: black" disabled>Bookme</button>
-                                            <a class="btn text-white float-right" style="background-color: #3CB371" data-toggle="modal" data-target="#userDetails" onclick="viewBookedDetails('@categoryUser.Id')"><i class="fa fa-eye"></i></a>
+                                            <a class="btn text-white float-right" style="color:#4a0000;" data-toggle="modal" data-target="#userDetails" onclick="viewBookedDetails('@categoryUser.Id')"><i class="fa fa-eye"></i></a>
                                         }
                                         <div>
 
@@ -87,7 +87,7 @@
 
                         }
                         <div class="text-center col-12 mt-4 mb-4">
-                            <a type="button" class="btn text-white mt-3" style="background-color: #3CB371" asp-action="ViewMore" asp-controller="Admin" asp-route-categoryId="@item.FirstOrDefault().CategoryId"><b>View more</b></a>
+                            <a type="button" class="btn text-white mt-3" style="background-color:#4a0000;" asp-action="ViewMore" asp-controller="Admin" asp-route-categoryId="@item.FirstOrDefault().CategoryId"><b>View more</b></a>
                         </div>
                     </div>
                    

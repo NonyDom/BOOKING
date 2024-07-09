@@ -40,6 +40,7 @@ namespace Bookme.Controllers
                     TotalDeclinedBooking = GetTotalDeclinedBooking,
                     TotalCancelledBooking = GetTotalCancelledBooking,
                     TotalPendingBooking = GetTotalPendingBooking,
+                    UserId = loggedInUser.Id,
 
                 };
                 return View(model);
@@ -301,6 +302,20 @@ namespace Bookme.Controllers
             }
             return View();
             
+        }
+
+        [HttpPost]
+        public JsonResult Available(string userId)
+        {
+            if (userId != null)
+            {
+                var checkIfAvailable = _adminHelper.changeAvailability(userId);
+                if (checkIfAvailable)
+                {
+                    return Json(new { isError = false, msg = "Availability Changed successfully" });
+                }
+            }
+            return Json(new { isError = true, msg = " You are still available for booking" });
         }
 
     }

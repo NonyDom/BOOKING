@@ -3,36 +3,34 @@ using Bookme.IHelper;
 using Bookme.Models;
 using Bookme.ViewModels;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
-using System.ComponentModel;
-using System.Diagnostics.Metrics;
-using System.Drawing.Text;
-using System.Security.Principal;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using Mono.TextTemplating;
+using static Bookme.Database.Enum;
 
 namespace Bookme.Helper
 {
     public class AdminHelper : IAdminHelper
     {
         private readonly ApplicationDbContext _context;
-        public AdminHelper(ApplicationDbContext context)
+        private readonly IUserHelper _userHelper;
+        public AdminHelper(ApplicationDbContext context, IUserHelper userHelper)
         {
             _context = context;
+            _userHelper = userHelper;
         }
 
         public bool CheckEmail(string email)
         {
             var check = _context.ApplicationUser.Where(g => g.Email == email).FirstOrDefault();
-            if (check != null) 
-            { 
-              return true;
+            if (check != null)
+            {
+                return true;
             }
             return false;
         }
 
         public Category GetCategoryById(int id)
         {
-            var category = _context.Category.FirstOrDefault(x  => x.Id == id && x.Active && !x.Deleted);
+            var category = _context.Category.FirstOrDefault(x => x.Id == id && x.Active && !x.Deleted);
             if (category != null)
             {
                 return category;
@@ -54,7 +52,7 @@ namespace Bookme.Helper
             var checkCategory = _context.Category.Where(x => x.Id == data.Id && x.Active && !x.Deleted).FirstOrDefault();
             if (checkCategory != null)
             {
-                checkCategory.Name = data.Name; 
+                checkCategory.Name = data.Name;
                 checkCategory.DateCreated = DateTime.Now;
                 _context.Update(checkCategory);
                 _context.SaveChanges();
@@ -71,7 +69,7 @@ namespace Bookme.Helper
                 {
                     var userDetails = _context.ApplicationUser.Where(x => x.Id != loggedInUserId && !x.IsDeactivated && x.CategoryId != null)
                     .Include(b => b.Category).Select(g =>
-                    
+
                         new ApplicationUserViewModel
                         {
                             Image = g.Image,
@@ -86,8 +84,8 @@ namespace Bookme.Helper
                             IsAvailable = g.IsAvailable,
                             IsDeactivated = g.IsDeactivated,
                         });
-                    
-                    
+
+
                     var result = userDetails.ToList();
                     return result;
                 }
@@ -104,7 +102,7 @@ namespace Bookme.Helper
         {
             if (username != null)
             {
-                 return _context.ApplicationUser.Where(a => a.UserName == username && !a.IsDeactivated).FirstOrDefault(); 
+                return _context.ApplicationUser.Where(a => a.UserName == username && !a.IsDeactivated).FirstOrDefault();
             }
             return null;
         }
@@ -142,45 +140,84 @@ namespace Bookme.Helper
             }
         }
 
+        //public List<BookingFormViewModel> MyBookingHistory(string loggedInUserId)
+        //{
+        //    try
+        //    {
+        //        //var ggggg = GroupUsersByCategory(loggedInUserId);
+        //        if (!string.IsNullOrEmpty(loggedInUserId))
+        //        {
+        //            var myBookingList = _context.BookingForm.Include(a => a.BookedBy)
+        //            .Where(x => x.BookedById == loggedInUserId)
+        //            .Select(b => new BookingFormViewModel
+        //            {
+        //                Venue = b.Venue,
+        //                State = b.State,
+        //                NatureOfEvent = b.NatureOfEvent,
+        //                DateOfEvent = b.DateOfEvent,
+        //                DepartureTime = b.DepartureTime,
+        //                DurationOfEvent = b.DurationOfEvent,
+        //                BookedBy = b.BookedBy,
+        //                BookingDate = b.BookingDate,
+        //                BookingStatus = b.BookingStatus,
+        //            })
+        //            .ToList();
+
+        //            //var ggg = _context.ApplicationUser.Where
+
+        //            return myBookingList;
+        //        }
+        //        return new List<BookingFormViewModel>();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Consider logging the exception details here
+        //        throw;
+        //    }
+        //}
         public List<BookingFormViewModel> MyBookingHistory(string loggedInUserId)
         {
-            try
+            var bookingFormViewModelList = new List<BookingFormViewModel>();
+            var loggedInUser = _userHelper.FindById(loggedInUserId);
+            if (loggedInUser != null)   
             {
-                if (!string.IsNullOrEmpty(loggedInUserId))
-                {
-                    var myBookingList = _context.BookingForm
-                    .Where(x => x.BookedUserId == loggedInUserId || x.BookedById == loggedInUserId)
-                    .Select(b => new BookingFormViewModel
-                    {
-                        Venue = b.Venue,
-                        State = b.State,
-                        NatureOfEvent = b.NatureOfEvent,
-                        DateOfEvent = b.DateOfEvent,
-                        DepartureTime = b.DepartureTime,
-                        DurationOfEvent = b.DurationOfEvent,
-                        BookedBy = b.BookedBy,
-                        BookingDate = b.BookingDate,
-                        BookingStatus = b.BookingStatus,
-                        BookedUserId = b.BookedUserId,
-                    })
+                var allBookings = _context.BookingForm.Include(b => b.BookedUser).Where(x => x.BookedById == loggedInUser.Id || x.BookedUserId == loggedInUser.Id)
                     .ToList();
-
-                    //var ggg = _context.ApplicationUser.Where
-
-                    return myBookingList;
+                if (allBookings.Count > 0)
+                {
+                    foreach (var booking in allBookings)
+                    {
+                        var bookedUser = _context.ApplicationUser.FirstOrDefault(c => c.Id == booking.BookedUserId);
+                        var bookedByUser = _context.ApplicationUser.FirstOrDefault(c => c.Id == booking.BookedById);
+                        var bookingFormViewModel = new BookingFormViewModel
+                        {
+                            Id = booking.Id,
+                            BookedById = booking.BookedById,
+                            BookedByUserName = bookedByUser?.UserName,
+                            BookedUserId = booking.BookedUserId,
+                            BookedUserName = bookedUser?.UserName,
+                            // Map other relevant properties from booking to viewModel
+                            Venue = booking.Venue,
+                            State = booking.State,
+                            NatureOfEvent = booking.NatureOfEvent,
+                            DateOfEvent = booking.DateOfEvent,
+                            DepartureTime = booking.DepartureTime,
+                            DurationOfEvent = booking.DurationOfEvent,
+                            BookedBy = booking.BookedBy,
+                            BookingDate = booking.BookingDate,
+                            BookingStatus = booking.BookingStatus,
+                        };
+                        bookingFormViewModelList.Add(bookingFormViewModel);
+                    }
                 }
-                return new List<BookingFormViewModel>();
             }
-            catch (Exception ex)
-            {
-                // Consider logging the exception details here
-                throw;
-            }
+            return bookingFormViewModelList;
         }
 
-        public bool CheckForApprovedBooking(Guid id) 
+
+        public bool CheckForApprovedBooking(Guid id)
         {
-            var checkMyBookings = _context.BookingForm.Where(x  => x.Id == id && x.BookingStatus == Database.Enum.BookingStatus.Approved)
+            var checkMyBookings = _context.BookingForm.Where(x => x.Id == id && x.BookingStatus == Database.Enum.BookingStatus.Approved)
                 .FirstOrDefault();
             if (checkMyBookings != null)
             {
@@ -204,13 +241,13 @@ namespace Bookme.Helper
 
                 //if (eventDateToConvert > DateTime.Now.AddDays(2))
                 //{
-                    var updateAvailaibility = _context.ApplicationUser.Where(x => x.Id == approveMyBookings.BookedUserId && !x.IsDeactivated)
-                    .FirstOrDefault();
-                    if (updateAvailaibility != null)
-                    {
-                        updateAvailaibility.IsAvailable = false;
-                        _context.Update(updateAvailaibility);
-                    }
+                var updateAvailaibility = _context.ApplicationUser.Where(x => x.Id == approveMyBookings.BookedUserId && !x.IsDeactivated)
+                .FirstOrDefault();
+                if (updateAvailaibility != null)
+                {
+                    updateAvailaibility.IsAvailable = false;
+                    _context.Update(updateAvailaibility);
+                }
                 //}
 
                 _context.SaveChanges();
@@ -337,7 +374,7 @@ namespace Bookme.Helper
                     return true;
                 }
             }
-           
+
             return false;
         }
 
@@ -377,7 +414,7 @@ namespace Bookme.Helper
             }
         }
 
-        public int GetTotalBooking(string UserId)     
+        public int GetTotalBooking(string UserId)
         {
             return _context.BookingForm.Where(x => x.BookedUserId == UserId || x.BookedById == UserId).Count();
         }
@@ -409,6 +446,28 @@ namespace Bookme.Helper
         public int GetTotalPendingBooking(string UserId)
         {
             return _context.BookingForm.Where(x => x.BookedById == UserId && x.BookingStatus == Database.Enum.BookingStatus.Pending).Count();
+        }
+
+        public int GetTotalCategory()
+        {
+            return _context.Category.Where(x => x.Active == true && !x.Deleted).Count();
+        }
+        public bool changeAvailability(string userId)
+        {
+            var checkMyAvailability = _context.ApplicationUser.FirstOrDefault(x => x.Id == userId && !x.IsDeactivated && x.IsAvailable == false);
+            if (checkMyAvailability != null)
+            {
+                checkMyAvailability.IsAvailable = true;
+                _context.Update(checkMyAvailability);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public int GetMyPendingBooking(string loggedInUser)
+        {
+            return _context.BookingForm.Where(x => x.BookedUserId == loggedInUser && x.BookingStatus == Database.Enum.BookingStatus.Pending).Count();
         }
     }
 }

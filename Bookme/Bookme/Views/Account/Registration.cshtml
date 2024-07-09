@@ -4,8 +4,8 @@
 }
 <div class="container">
     <div class="mt-3">
-        <div class=" text-dark text-center mt-5 p-5">
-            <h3><b>Enter your Details to Register</b></h3>
+        <div class="  text-center mt-5 p-5">
+            <h3 style="color:#4a0000;"><b>Enter your Details to Register</b></h3>
         </div>
 
         <div class="card mt- w-50 mx-auto mb-5" style="background-color: #F8F8FF">
@@ -15,71 +15,71 @@
                         <div class="row">
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                    <label class="text-white" for="firstName">First Name:</label>
-                                <input type="text" style="border-color: black" class="form-control" id="firsName" placeholder="Enter first name" name="">
+                                <label style="border-color: #4a0000" for="firstName">First Name:</label>
+                                <input type="text" style="border-color: #4a0000" class="form-control" id="firsName" placeholder="Enter first name" name="">
                                 </div>
                             </div>
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                    <label class="text-white" for="lastName">Last Name:</label>
-                                <input type="text" style="border-color: black" class="form-control" id="lastName" placeholder="Enter last name" name="last name">
+                                <label style="border-color: #4a0000" for="lastName">Last Name:</label>
+                                <input type="text" style="border-color: #4a0000" class="form-control" id="lastName" placeholder="Enter last name" name="last name">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label class="text-white" for="gender">Gender:</label>
-                                <select id="genderId" style="border-color: black" asp-items="@(new SelectList(ViewBag.Gender,"Id","Name"))" class="form-control bg-light custom-select">
+                                <label style="border-color: #4a0000" for="gender">Gender:</label>
+                                <select id="genderId" style="border-color: #4a0000" asp-items="@(new SelectList(ViewBag.Gender,"Id","Name"))" class="form-control bg-light custom-select">
                                 </select>
                                 </div>
                             </div>
                             <div class="col-6 mt-3">
                                 <div class="form-group">
                                 <label class="text-white" for="address">Address:</label>
-                                <input type="text" style="border-color: black" class="form-control" id="enterAddress" placeholder="Enter address" name="address">
+                                <input type="text" style="border-color: #4a0000" class="form-control" id="enterAddress" placeholder="Enter address" name="address">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label class="text-white" for="category">Category:</label>
-                                <select id="categoryId" style="border-color: black" asp-items="@(new SelectList(ViewBag.Category,"Id","Name"))" class="form-control bg-light custom-select">
+                                <label style="border-color: #4a0000" for="category">Category:</label>
+                                <select id="categoryId" style="border-color: #4a0000" asp-items="@(new SelectList(ViewBag.Category,"Id","Name"))" class="form-control bg-light custom-select">
                                 </select>
                                 </div>
                             </div>
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label class="text-white" for="price">Price:</label>
-                                <input type="text" style="border-color: black" class="form-control" id="price" placeholder="Enter price" name="">
+                                <label style="border-color: #4a0000" for="price">Price:</label>
+                                <input type="text" style="border-color: #4a0000" class="form-control" id="price" placeholder="Enter price" name="">
                                 </div>
                             </div>
                         </div><div class="row">
                             <div class="col-6 mt-3">
                             <div class="form-group">
-                                <label class="text-white" for="email">Email:</label>
-                                <input type="email" style="border-color: black" class="form-control" id="email" placeholder="Enter email" name="email">
+                                <label style="border-color: #4a0000" for="email">Email:</label>
+                                <input type="email" style="border-color: #4a0000" class="form-control" id="email" placeholder="Enter email" name="email">
                             </div>
                             </div>
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label class="text-white" for="price">Phone number:</label>
-                                <input type="number" style="border-color: black" class="form-control" id="phoneNumber" placeholder="Enter phone number" name="">
+                                <label style="border-color: #4a0000" for="price">Phone number:</label>
+                                <input type="number" style="border-color: #4a0000" class="form-control" id="phoneNumber" placeholder="Enter phone number" name="">
                                 </div>
                             </div>
                         </div>
                     <div class="row">
                         <div class="col-6 mt-3">
                             <div class="form-group">
-                                <label class="text-white" for="pwd">Music Specialization:</label>
-                                <input type="text" style="border-color: black" class="form-control" id="musicSpecialization" placeholder="Music Specialization" name="">
+                                <label style="border-color: #4a0000" for="pwd">Music Specialization:</label>
+                                <input type="text" style="border-color: #4a0000" class="form-control" id="musicSpecialization" placeholder="Music Specialization" name="">
                             </div>
                         </div>
                         <div class="col-6 mt-3">
                             <div class="form-group">
-                                <label class="text-white" for="userName">User Name:</label>
-                                <input type="text" style="border-color: black" class="form-control" id="userName" placeholder="User Name" name="">
+                                <label style="border-color: #4a0000" for="userName">User Name:</label>
+                                <input type="text" style="border-color: #4a0000" class="form-control" id="userName" placeholder="User Name" name="">
                             </div>
                         </div>
                     </div>
@@ -87,28 +87,28 @@
                         <div class="row">
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label class="text-white" for="pwd">password:</label>
-                                <input type="password" style="border-color: black" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                                <label style="border-color: #4a0000" for="pwd">password:</label>
+                                <input type="password" style="border-color: #4a0000" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
                                 </div>
                             </div>
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label class ="text-white" for="confirm pwd">Confirm Password:</label>
-                                <input type="password" style="border-color: black" class="form-control" id="confirmpwd" placeholder="Confirm password" name="pswd">
+                                <label style="border-color: #4a0000" for="confirm pwd">Confirm Password:</label>
+                                <input type="password" style="border-color: #4a0000" class="form-control" id="confirmpwd" placeholder="Confirm password" name="pswd">
                                 </div>
                             </div>
                         </div>
                     <div class="row">
                         <div class="col-12 mt-3">
                             <div class="form-group">
-                                <label class="text-white" for="bio"> Bio:</label>
-                                <textarea class="form-control" style="border-color: black" id="bio" cols="5" rows="5"> </textarea>
+                                <label style="border-color: #4a0000" for="bio"> Bio:</label>
+                                <textarea class="form-control" style="border-color: #4a0000" id="bio" cols="5" rows="5"> </textarea>
                             </div>
                         </div>
                     </div>
                     
                         <div class="text-center">
-                            <button type="button" class="btn btn-dark text-white mt-3" onclick="userDetails()"><b>Submit</b></button>
+                        <button type="button" class="btn text-white mt-3" style="background-color:#4a0000;" onclick="userDetails()"><b>Submit</b></button>
                         </div>
                     </form>
                 </div>

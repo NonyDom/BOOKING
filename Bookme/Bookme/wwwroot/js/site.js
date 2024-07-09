@@ -421,7 +421,6 @@ function PostPicture()
 }
 
 function viewBookedDetails(id) {
-    debugger
     $.ajax({
         type: 'Get',
         url: '/Admin/ViewDetails',
@@ -430,7 +429,6 @@ function viewBookedDetails(id) {
             id: id,
         },
         success: function (data) {
-        debugger
             $('#userContent').html(data);
             $('#userDetails').show("modal");  
             
@@ -438,3 +436,28 @@ function viewBookedDetails(id) {
     });
 }
 
+
+function available(userId) {
+    debugger
+    $.ajax({
+        type: 'POST',
+        url: '/Admin/Available',
+        data:
+        {
+            userId: userId
+        },
+        success: function (result) {
+            debugger
+            if (!result.isError) {
+                var url = '/Admin/MyBookings';
+                successAlertWithRedirect(result.msg, url);
+            }
+            else {
+                errorAlert(result.msg);
+            }
+        },
+        error: function (ex) {
+            errorAlert(result.msg);
+        }
+    });
+}

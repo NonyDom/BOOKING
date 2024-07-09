@@ -17,10 +17,10 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-6">
-                <h2 class="text-dark"><b>Category List</b></h2>
+                <h2 style="color:#4a0000"><b>Category List</b></h2>
             </div>
             <div class="col-6 text-right">
-                <a class="btn text-white" style="background-color: #3CB371" data-toggle="modal" data-target="#addCategory">
+                <a class="btn text-white" style="background-color:#4a0000" data-toggle="modal" data-target="#addCategory">
                     <i class="fa fa-plus"></i> &nbsp;  Create New Category
                 </a>
             </div>
@@ -34,7 +34,7 @@
         @if (Model != null || Model?.Categories.Count() > 0)
         {
             //add datatable
-            <table class="table table-bordered text-dark table-striped" style="width:100%">
+            <table class="table table-bordered table-striped" style="width:100%; color:#4a0000">
                 <thead>
                     <tr>
                         <th>
@@ -76,24 +76,24 @@
 
 <div class="modal fade" id="addCategory" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-dark">
+        <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"> <b> Add new Category </b> </h5>
+                <h5 class="modal-title" style="color:#4a0000"> <b> Add new Category </b> </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-12">
                         
-                        <label class="col-form-label"> Name </label>
+                        <label class="col-form-label" style="color:#4a0000"> Name </label>
                         <input class="form-control" type="text" id="name" required>
                     </div>
                 </div>
 
                 <div class="col-sm-6 m-auto">
                     <div class="mt-3">
-                        <button type="button" class="btn text-white d-block mx-auto px-4 py-2" style="background-color: #3CB371"
-                                id="submit_Btn" style="border-radius: 20px;" onclick="SaveCategoryDetails()">
+                        <button type="button" class="btn text-white d-block mx-auto px-4 py-2" 
+                                id="submit_Btn" style="border-radius: 20px; background-color:#4a0000;" onclick="SaveCategoryDetails()">
                             Submit
                         </button>
                     </div>
@@ -105,16 +105,16 @@
 
 <div class="modal fade" id="editCategory" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-dark">
+        <div class="modal-content" style="color:#4a0000">
             <div class="modal-header">
                 <h5 class="modal-title"> <b> Edit Category </b> </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" style="background-color:#4a0000" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-12">
 
-                        <label class="col-form-label"> Name </label>
+                        <label class="col-form-label" style="color:#4a0000"> Name </label>
                         <input class="form-control" type="text" id="categoryName" required>
                         <input class="form-control" type="text" id="categoryId" hidden>
                     </div>
@@ -122,8 +122,8 @@
 
                 <div class="col-sm-6 m-auto">
                     <div class="mt-3">
-                        <button type="button" class="btn text-white  d-block mx-auto px-4 py-2" style="background-color: #3CB371"
-                                id="submit_Btn" style="border-radius: 20px;" onclick="EditCategoryDetails()">
+                        <button type="button" class="btn text-white  d-block mx-auto px-4 py-2"
+                                id="submit_Btn" style="border-radius: 20px; background-color:#4a0000" onclick="EditCategoryDetails()">
                             Save
                         </button>
                     </div>
@@ -137,11 +137,11 @@
 <div class="modal custom-modal fade" id="deleteCategory" role="dialog">
    @*  @Html.Partial("_DeleteCategory") *@
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-dark">
+        <div class="modal-content text-primary">
             <div class="modal-body">
                 <div class="form-header">
-                    <h3 class="text-center">Delete Category</h3>
-                    <p class="text-center">Are you sure you want to delete?</p>
+                    <h3 class="text-center" style="color:#4a0000">Delete Category</h3>
+                    <p class="text-center" style="color:#4a0000">Are you sure you want to delete?</p>
                 </div>
                 <div class="modal-btn delete-action">
                     <div class="row">
@@ -152,7 +152,7 @@
                             </a>
                         </div>
                         <div class="col-6">
-                            <a class="btn btn-dark cancel-btn"  style="border-radius: 20px;" href="javascript:void(0);" data-dismiss="modal"> cancel </a>
+                            <a class="btn text-white cancel-btn"  style="border-radius: 20px; background-color:#4a0000" href="javascript:void(0);" data-dismiss="modal"> cancel </a>
                         </div>
                     </div>
                 </div>

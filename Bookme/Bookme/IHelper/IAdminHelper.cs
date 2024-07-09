@@ -7,16 +7,19 @@ namespace Bookme.IHelper
     {
         bool ApproveMyBookings(Guid id);
         bool CancelMyBookings(Guid id);
+        bool changeAvailability(string userId);
         bool CheckForApprovedBooking(Guid id);
         bool CheckForCancelledBooking(Guid id);
         bool CheckForDeclinedBooking(Guid id);
         bool DeclineMyBookings(Guid id);
         Category GetCategoryById(int id);
         ApplicationUser GetLoggedInUser(string username);
+        int GetMyPendingBooking(string loggedInUser);
         ApplicationUser GetProfileById(string userId);
         int GetTotalApprovedBooking(string UserId);
         int GetTotalBooking(string UserId);
         int GetTotalCancelledBooking(string UserId);
+        int GetTotalCategory();
         int GetTotalDeclinedBooking(string UserId);
         int GetTotalPendingBooking(string UserId);
         List<ApplicationUserViewModel> GroupUsersByCategory(string loggedInUserId);

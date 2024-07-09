@@ -1,25 +1,20 @@
-﻿
+﻿@model Bookme.ViewModels.CategoryViewModel
+
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div id="main">
-    <div class="containercontainer-fluid mt-5 ml-0">
-        <h1>Welcome SuperAdmin !</h1>
+    <div class="containercontainer-fluid mt-5 ml-0 p-5">
+        <h1 style="color:#4a0000;">Welcome SuperAdmin</h1>
         <div class="row">
-            <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2 text-center">
-                <h4>Total Bookings</h4>
-                <h6>1</h6>
+            <div class="card col-sm-12 col-lg-6 p-3 mx-auto mt-2 shadow text-center" style="color:#4a0000;">
+                <h4>Total Category</h4>
+                <h6 style="border-radius:100%; background-color:#4a0000;" class="text-white text-center col-1 mx-auto">@Model?.TotalCategory</h6>
             </div>
-            <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2 text-center">
-                <h4>Approved Bookings</h4>
-                <h6>1</h6>
-            </div>
-            <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2 text-center">
-                <h4>Declined Bookings</h4>
-                <h6>1</h6>
-            </div>
+            
         </div>
     </div>
 </div>

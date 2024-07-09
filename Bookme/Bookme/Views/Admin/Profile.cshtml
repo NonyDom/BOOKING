@@ -17,7 +17,7 @@
     width: 26px;
  }
 .edit-icon:hover {
-            background-color: #3CB371;
+            background-color: #4a0000;
 ;
 	border-color: #8080ff;
     color: #fff;
@@ -33,9 +33,9 @@ margin-left: 10px; /* Adjust the value as needed */
 <div id="main">
     <div class="container fluid">
         <div class="container mt-4 p-5">
-            <h2><b>Profile</b></h2>
+            <h2 style="color:#4a0000;"><b>Profile</b></h2>
             <div class="row">
-                <div class="card col-4 p-5" >
+                <div class="card shadow col-4 p-5" >
                     <a data-toggle="modal" data-target="#changeimage" onclick="getProfileDetails('@Model?.User?.Id')" class="btn edit-icon" disabled style="margin-left:98%;"><i class="fa fa-pencil"></i></a>
                     @if (Model?.User?.Image != null)
                     {
@@ -46,7 +46,7 @@ margin-left: 10px; /* Adjust the value as needed */
                         <img class="card-img-top  mt-2 w-80" src="~/Images/dm.png">
                     }
                 </div>
-                <div class="card p-5 col-6 text-dark" >
+                <div class="card shadow p-5 col-6" style="color:#4a0000;">
                     <a data-toggle="modal" data-target="#editProfilePix" onclick="getProfileDetails('@Model?.User?.Id')" class="btn edit-icon" disabled style="margin-left:98%;"><i class="fa fa-pencil"></i></a>
                     <ul class="user-info li b">
                         <li>FullName: <b>@Model?.User?.FirstName  @Model?.User?.LastName</b> </li>
@@ -69,10 +69,10 @@ margin-left: 10px; /* Adjust the value as needed */
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-white">
             <div class="modal-header">
-                <h5 class="modal-title"><b> Edit Profile </b></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" style="color:#4a0000;"><b> Edit Profile </b></h5>
+                <button type="button" class="btn-close" style="background-color:#4a0000;" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="color:#4a0000;">
                 <div class="row">
                     <div class="col-sm-12 col-lg-6">
 
@@ -124,8 +124,8 @@ margin-left: 10px; /* Adjust the value as needed */
                 </div>
                 <div class="col-sm-6 m-auto">
                     <div class="mt-3">
-                        <button type="button" class="btn text-white d-block mx-auto px-4 py-2"
-                                id="submit_Btn" style="background-color: #802b00" style="border-radius: 20px;" onclick="EditProfileDetails()">
+                        <button type="button" class="btn btn-primary text-white d-block mx-auto px-4 py-2"
+                                id="submit_Btn" style="border-radius: 20px;" onclick="EditProfileDetails()">
                             Save
                         </button>
                     </div>
@@ -137,17 +137,17 @@ margin-left: 10px; /* Adjust the value as needed */
 
 <div class="modal fade" id="changeimage" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-dark w-50" >
+        <div class="modal-content w-50" >
             <div class="modal-header">
-                <h5 class="modal-title"> <b> Change Picture </b> </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" style="color:#4a0000;"> <b> Change Picture </b> </h5>
+                <button type="button" class="btn-close" style="background-color:#4a0000;" data-bs-dismiss="modal" aria-label="Close"></button>
 
             </div>
             <div class="modal-body">
                  
                 <div class="mt-3">
                     <div>
-                        <label class="col-form-label">Profile Picture </label>
+                        <label class="col-form-label" style="color:#4a0000;">Profile Picture </label>
                          @if (Model?.User?.Image != null)
                     {
                         <img class="card-img-top rounded-circle mt-2 h-75 w-80" src="@Model?.User?.Image">
@@ -157,11 +157,11 @@ margin-left: 10px; /* Adjust the value as needed */
                         <img class="card-img-top  mt-2 w-80" src="~/Images/dm.png">
                     }
                         <input class="form-control" type="text" id="userId" hidden>
-                         <input class="form-control mt-3 col-6" type="file" id="profilePicture" required>
+                         <input class="form-control mt-3 col-6 text-primary" type="file" id="profilePicture" required>
                     </div>
-                    <button type="button" class="btn text-white d-block mx-auto px-4 py-2 mt-3"
-                            id="" style="background-color: #3CB371" style="border-radius: 20px;" onclick="PostPicture()">
-                        Change Image
+                    <button type="button" class="btn text-white d-block mx-auto px-4 py-2 mt-3" style="background-color:#4a0000;"
+                            id="" style="border-radius: 20px;" onclick="PostPicture()">
+                        Change Picture
                     </button>
                 </div>
                 

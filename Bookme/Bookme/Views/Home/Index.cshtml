@@ -11,7 +11,7 @@
     {
       background: url(Images/aa.jpg) no-repeat center;
       background-size:cover;
-      height: 700px;
+      height: 800px;
       position: relative;
     }
 
@@ -22,33 +22,33 @@
      top: 40%;
      left: 25%;
      right: 25%
-     color: white;
+     color: blue;
     }
 
     .bookme-text h1{
         font-weight:700;
-        color: white;
+        color: wheat;
     }
 </style>
 
 <div div class="container-fluid bookme-image">
-    <div class="bookme-text">
+    <div class="bookme-text ">
       <h1 class="display-3" style="font-family: 'Sitka Display'">WELCOME TO BOOK ME</h1>
-      <p class="text-white lead"><b>We are the music makers and we are the dreamers of dreams.<br />
+      <p class="lead" style="color:whitesmoke"><b>We are the music makers and we are the dreamers of dreams.<br />
         A creative artist works on his next composition because he was not satisfied with his previous one </b></p>
     </div>
- </div>
+</div>
 
 
-    <div class="container-fluid p-5 mb-5" style="background-color: #662200">
+<div class="container-fluid p-5 mb-5" style=" background-color:white;" id="about">
         <div class="container">
             <div class="row mt-4 pt-4" >
                 <div class="col-sm-12 col-lg-6">
-                <img src="~/Images/bb3.jpg" width="100%" height="">
+                <img src="~/Images/bb3.jpg" width="100%">
                 </div>
-                <div class="col-sm-12 col-lg-6 text-white">
-                    <h1 class="mt-5 mb-5 ml-4">About</h1>
-                <p>
+                <div class="col-sm-12 col-lg-6" style="color:#4a0000">
+                    <h1 class="mt-5 mb-5 ml-4" style="font-weight:600; color:#4a0000;">About</h1>
+                <p style="color:#4a0000">
                     Welcome to Bookme, the premier online platform dedicated to bringing live music to every event.
                     Our mission is to make booking the perfect instrumentalist for your event as easy as strumming a guitar. <br />
                     What We Offer:
@@ -63,81 +63,82 @@
             </div>
         </div>
     <div class="text-center mt-4">
-        <a asp-controller="Account" asp-action="Registration" class="btn btn-light mt-3 p-4 text-center"><b>Get Started</b></a>
+        <a asp-controller="Account" asp-action="Registration" class="btn btn-light mt-3 p-3 text-center" style="color:#4a0000; border: 2px solid #4a0000"><b>Get Started</b></a>
     </div>
-    </div>
-
-     <div class="container-fluid mb-5 mt-3" style="background-color: white">
-         <h2 class="text-center"><b>Available Categories</b></h2>
-        <div class="container">
-        <div class="row mt-5 mx-auto justify-content-center">
-                <div class="card col-sm-12 col-lg-3 mx-3 p-3 mt-2 text-light shadow text-center" style="background-color:#662200">
-                <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto">
-                    <h4 class="mt-3">Keyboardists category</h4>
-                <p>
-                    Welcome to the world of melody and harmony with our talented keyboardists. 
-                    Our keyboardists are maestros of melody, capable of bringing a wide range of musical styles to your event.
-                    From the soothing sounds of classical piano to the upbeat rhythms of electronic keyboards, they can tailor 
-                    their performance to suit your event's theme.
-
-
-                </p>
-                </div>
-            <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2  text-light text-center" style="background-color:#662200">
-                <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto">
-                <h4 class="mt-3">Gutarists category</h4>
-                <p>
-                    Our guitarists are the strumming storytellers of your event, weaving a tapestry of sound 
-                    that can both energize and soothe your guests. With a repertoire that spans classical, 
-                    acoustic, and electric guitar, they can set the tone for any occasion.
-
-                </p>
-                </div>
-            <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2  text-light text-center" style="background-color:#662200">
-                <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto">
-                <h4 class="mt-3">Drummers category</h4>
-                <p>
-                    Feel the pulse of your event come alive with our dynamic drummers. 
-                    Our drummers are the heartbeat of any musical ensemble, providing the foundational rhythm that drives 
-                    the energy of your celebration. They are skilled in a variety of drumming styles, from the traditional 
-                    beats of acoustic drums to the modern grooves of electronic drum pads.
-                </p>
-                </div>
-            </div>
-        <div class="row mt-5 mx-auto justify-content-center">
-            <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2  text-light text-center" style="background-color:#662200">
-                <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto">
-                <h4 class="mt-3">Bassists category</h4>
-                <p>
-                    Our bassists lay down the groove that keeps the party moving. 
-                    They are the unsung heroes whose rhythms provide the foundation for all other instruments. 
-                    Whether it's the deep tones of the upright bass or the funk of the electric bass, they bring 
-                    depth to any musical arrangement.
-
-                </p>
-            </div>
-            <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2  text-light text-center" style="background-color:#662200">
-                <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto">
-                <h4 class="mt-3">Vocalists category</h4>
-                <p>Our vocalists are the soulful centerpieces of your celebration,
-                    offering performances that can move hearts and stir emotions.
-                    With voices that range from the powerful to the delicate, 
-                    they can perform a wide array of musical styles to suit any event.</p>
-            </div>
-            <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2  text-light text-center" style="background-color:#662200">
-                <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto">
-                <h4 class="mt-3">Trumpeters category</h4>
-                <p>
-                    Our trumpeters are the heralds of your event, announcing each moment with flair and finesse. 
-                    Their powerful brass tones can fill a room with regal sound or provide a soft backdrop to a romantic scene.
-
-
-            </div>
-        </div>
-        </div>
-    </div>
-
 </div>
+
+  <div class="container-fluid mb-5 mt-3 p-3" style="background-color: #f7f7f7">
+    <h2 class="text-center" style="color:#4a0000;"><b>Available Categories</b></h2>
+     <div class="container">
+            <div class="row mt-5 mx-auto justify-content-center">
+                <div class="card col-sm-12 col-lg-3 mx-3 p-3 mt-2 text-light shadow text-center" style="background-color:white;">
+                    <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto mt-4">
+                        <h4 class="mt-3" style="color:#4a0000; font-weight:600;">Keyboardists category</h4>
+                    <p style="color:#4a0000">
+                        Welcome to the world of melody and harmony with our talented keyboardists. 
+                        Our keyboardists are maestros of melody, capable of bringing a wide range of musical styles to your event.
+                        From the soothing sounds of classical piano to the upbeat rhythms of electronic keyboards, they can tailor 
+                        their performance to suit your event's theme.
+
+
+                    </p>
+                    </div>
+                <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2  text-light shadow text-center" style="background-color:white;">
+                    <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto mt-4">
+                    <h4 class="mt-3" style="color:#4a0000; font-weight:600;">Gutarists category</h4>
+                    <p style="color:#4a0000">
+                        Our guitarists are the strumming storytellers of your event, weaving a tapestry of sound 
+                        that can both energize and soothe your guests. With a repertoire that spans classical, 
+                        acoustic, and electric guitar, they can set the tone for any occasion.
+
+                    </p>
+                    </div>
+                <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2  text-light shadow text-center" style="background-color:white;">
+                    <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto mt-4">
+                    <h4 class="mt-3" style="color:#4a0000; font-weight:600;">Drummers category</h4>
+                    <p style="color:#4a0000">
+                        Feel the pulse of your event come alive with our dynamic drummers. 
+                        Our drummers are the heartbeat of any musical ensemble, providing the foundational rhythm that drives 
+                        the energy of your celebration. They are skilled in a variety of drumming styles, from the traditional 
+                        beats of acoustic drums to the modern grooves of electronic drum pads.
+                    </p>
+                    </div>
+                </div>
+            <div class="row mt-5 mx-auto justify-content-center">
+                <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2 text-light shadow text-center" style="background-color:white;">
+                    <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto mt-4">
+                    <h4 class="mt-3" style="color:#4a0000; font-weight:600;">Bassists category</h4>
+                    <p style="color:#4a0000">
+                        Our bassists lay down the groove that keeps the party moving. 
+                        They are the unsung heroes whose rhythms provide the foundation for all other instruments. 
+                        Whether it's the deep tones of the upright bass or the funk of the electric bass, they bring 
+                        depth to any musical arrangement.
+
+                    </p>
+                </div>
+                <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2 text-light shadow text-center" style="background-color:white;">
+                    <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto mt-4">
+                    <h4 class="mt-3" style="color:#4a0000; font-weight:600;">Vocalists category</h4>
+                    <p style="color:#4a0000">
+                        Our vocalists are the soulful centerpieces of your celebration,
+                        offering performances that can move hearts and stir emotions.
+                        With voices that range from the powerful to the delicate, 
+                        they can perform a wide array of musical styles to suit any event.</p>
+                </div>
+                <div class="card col-sm-12 col-lg-3 p-3 mx-3 mt-2 text-light shadow text-center" style="background-color:white;">
+                    <img src="~/Images/mm2.jpeg" width="90" height="90" class="mx-auto mt-4">
+                    <h4 class="mt-3" style="color:#4a0000; font-weight:600;">Trumpeters category</h4>
+                    <p style="color:#4a0000">
+                        Our trumpeters are the heralds of your event, announcing each moment with flair and finesse. 
+                        Their powerful brass tones can fill a room with regal sound or provide a soft backdrop to a romantic scene.
+
+
+                </div>
+            </div>
+     </div>
+  </div>
+
+@* </div> *@
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

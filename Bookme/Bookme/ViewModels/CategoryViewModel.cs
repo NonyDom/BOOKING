@@ -10,5 +10,7 @@ namespace Bookme.ViewModels
         public bool Active { get; set; }
         public bool Deleted { get; set; }
         public List<Category>? Categories { get; set; }
+        public int TotalCategory { get; set; }
+
     }
 }

@@ -22,7 +22,14 @@ namespace Bookme.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            
+                var getTotalCategory = _adminHelper.GetTotalCategory();
+                var model = new CategoryViewModel
+                {
+                    TotalCategory = getTotalCategory,
+                };
+                return View(model);
+            
         }
 
         [HttpGet]

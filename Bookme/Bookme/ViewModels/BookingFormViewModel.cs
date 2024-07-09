@@ -17,8 +17,9 @@ namespace Bookme.ViewModels
         public DateTime? StatusChangeDate { get; set; }
         public BookingStatus BookingStatus { get; set; }
         public string BookedById { get; set; }
-        public virtual ApplicationUser BookedBy { get; set; }
+        public  ApplicationUser BookedBy { get; set; }
         public string BookedUserId { get; set; }
+        public string BookedUser { get; set; }
         public string BookedUserName { get; set; }
         public string LogedInUser { get; set; }
         public int TotalBooking {  get; set; }
@@ -26,5 +27,8 @@ namespace Bookme.ViewModels
         public int TotalDeclinedBooking {  get; set; }
         public int TotalCancelledBooking { get; set; }
         public int TotalPendingBooking { get; set; }
+        public string UserId { get; internal set; }
+        public List<ApplicationUser> BookedUserOn { get; set; }
+        public string BookedByUserName { get; set; }
     }
 }   
