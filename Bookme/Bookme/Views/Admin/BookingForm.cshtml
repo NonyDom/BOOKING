@@ -20,13 +20,13 @@
                     <div class="row">
                         <div class="col-6 mt-3">
                             <div class="form-group">
-                                <label asp-for="Venue" class="text-white"> Venue of Event: </label>
+                                <label asp-for="Venue" style="color:#4a0000"> Venue of Event: </label>
                                 <input type="text" asp-for="Venue" class="form-control" placeholder="Enter venue" name="Venue">
                             </div>
                         </div>
                         <div class="col-6 mt-3">
                             <div class="form-group">
-                                <label class="text-white">State of Event:</label>
+                                <label style="color:#4a0000">State of Event:</label>
                                 <input type="text" asp-for="State" class="form-control" id="state" placeholder="Enter state" name="State">
                             </div>
                         </div>
@@ -34,14 +34,14 @@
                     <div class="row">
                         <div class="col-6 mt-3">
                             <div class="form-group">
-                                <label class="text-white">Nature of Event</label>
+                                <label style="color:#4a0000">Nature of Event</label>
                                 <input type="text" asp-for="NatureOfEvent" class="form-control" id="nature" placeholder="Enter nature of event" name="NatureOfEvent">
                                 
                             </div>
                         </div>
                         <div class="col-6 mt-3">
                             <div class="form-group">
-                                <label class="text-white">Date of Event:</label>
+                                <label style="color:#4a0000">Date of Event:</label>
                                 <input type="date" asp-for="DateOfEvent" class="form-control" id="date" placeholder="Enter date" name="DateOfEvent">
                             </div>
                         </div>
@@ -49,13 +49,13 @@
                     <div class="row">
                         <div class="col-6 mt-3">
                             <div class="form-group">
-                                <label class="text-white">Duration of Event</label>
+                                <label style="color:#4a0000">Duration of Event</label>
                                 <input type="text" asp-for="DurationOfEvent" class="form-control" id="duration" placeholder="Enter duration(days)" name="DurationOfEvent">
                             </div>
                         </div>
                         <div class="col-6 mt-3">
                             <div class="form-group">
-                                <label class="text-white">Departure time:</label>
+                                <label style="color:#4a0000">Departure time:</label>
                                 <input type="text" asp-for="DepartureTime" class="form-control" id="departure" placeholder="Enter time(eg, 12:pm) " name="DepartureTime">
                             </div>
                         </div>
@@ -63,12 +63,12 @@
                     <div class="row">
                         <div class="col-6 mt-3 text-right">
                             <div class="form-group">
-                                <a class="btn btn-danger" asp-action="Booking" asp-controller="Admin">Back</a>
+                                <a class="btn text-white" style="background-color:#4a0000" asp-action="Booking" asp-controller="Admin">Back</a>
                             </div>
                         </div>
                         <div class="col-6 mt-3">
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Book now</button>
+                                <button class="btn text-white" style="background-color: #4a0000" type="submit">Book now</button>
                             </div>
                         </div>
                     </div>
