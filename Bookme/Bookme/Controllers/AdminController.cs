@@ -318,8 +318,18 @@ namespace Bookme.Controllers
             return Json(new { isError = true, msg = " You are still available for booking" });
         }
 
+        [HttpPost]
+        public JsonResult EditProfile(string userId, string base64)
+        {
+            if (string.IsNullOrEmpty(base64) && userId == null)
+            {
+                return Json(new { isError = true, msg = "Error occurred" });
+            }
+            var uploadUserPicture = _adminHelper.EditProfile(base64, userId);
+            return uploadUserPicture
+                == null ? Json(new { isError = true, msg = "Unable to edit profile" })
+                : Json(new { isError = false, msg = "Profile picture edited successfully" });
+        }
     }
-
-   
 }
 

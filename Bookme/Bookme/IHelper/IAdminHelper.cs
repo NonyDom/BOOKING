@@ -21,6 +21,7 @@ namespace Bookme.IHelper
         int GetTotalCancelledBooking(string UserId);
         int GetTotalCategory();
         int GetTotalDeclinedBooking(string UserId);
+        string EditProfile(string base64, string userId);
         int GetTotalPendingBooking(string UserId);
         List<ApplicationUserViewModel> GroupUsersByCategory(string loggedInUserId);
         List<BookingFormViewModel> MyBookingHistory(string loggedInUserId);

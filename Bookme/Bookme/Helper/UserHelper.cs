@@ -3,7 +3,9 @@ using Bookme.IHelper;
 using Bookme.Models;
 using Bookme.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Drawing;
 
 namespace Bookme.Helper
 {
@@ -84,10 +86,11 @@ namespace Bookme.Helper
             }
             return null;
         }
-        public async Task<ApplicationUser> CreateUser(ApplicationUserViewModel userDetails)
+        public async Task<ApplicationUser> CreateUser(ApplicationUserViewModel userDetails, string base64)
         {
             var user = new ApplicationUser();
             user.UserName = userDetails.UserName;
+            user.Image = base64;
             user.Email = userDetails.Email;
             user.FirstName = userDetails.FirstName;
             user.LastName = userDetails.LastName;
@@ -154,5 +157,7 @@ namespace Bookme.Helper
         {
             return _userManager.Users.Where(s => s.UserName == username)?.FirstOrDefaultAsync().Result.Id?.ToString();
         }
+
+        
     }
 }

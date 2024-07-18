@@ -4,6 +4,8 @@ using Bookme.Models;
 using Bookme.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 
 
@@ -37,9 +39,9 @@ namespace Bookme.Controllers
         }
 
         [HttpPost]
-        public async Task<JsonResult> Registration(string registrationDetails)
+        public async Task<JsonResult> Registration(string registrationDetails, string base64)
         {
-            if (registrationDetails != null)
+            if (registrationDetails != null && base64 != null)
             {
                 var userViewModel = JsonConvert.DeserializeObject<ApplicationUserViewModel>(registrationDetails);
                 if (userViewModel != null)
@@ -53,7 +55,7 @@ namespace Bookme.Controllers
                     {
                         return Json(new { isError = true, msg = "Password and Confirm password must match" });
                     }
-                    var createUser = await _userHelper.CreateUser(userViewModel).ConfigureAwait(false);
+                    var createUser = await _userHelper.CreateUser(userViewModel, base64).ConfigureAwait(false);
                     if (createUser != null)
                     {
                         return Json(new { isError = false, msg = "User registered successfully, login to continue" });
@@ -63,6 +65,7 @@ namespace Bookme.Controllers
             }
             return Json(new { isError = true, msg = " An error has occurred, try again. Please contact support if the error persists." });
         }
+
         [HttpPost]
         public JsonResult login(string email, string password)
         {

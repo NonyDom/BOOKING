@@ -3,6 +3,7 @@ using Bookme.IHelper;
 using Bookme.Models;
 using Bookme.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Mono.TextTemplating;
 using static Bookme.Database.Enum;
 
@@ -468,6 +469,21 @@ namespace Bookme.Helper
         public int GetMyPendingBooking(string loggedInUser)
         {
             return _context.BookingForm.Where(x => x.BookedUserId == loggedInUser && x.BookingStatus == Database.Enum.BookingStatus.Pending).Count();
+        }
+        public string EditProfile(string base64, string userId)
+        {
+            if (base64 != null && userId != null)
+            {
+                var userPix = _context.ApplicationUser.FirstOrDefault(x => x.Id == userId && !x.IsDeactivated);
+                if (userPix != null)
+                {
+                    userPix.Image = base64;
+                    _context.Update(userPix);
+                    _context.SaveChanges();
+                    return "User profile Updated";
+                }
+            }
+            return "Error occured";
         }
     }
 }

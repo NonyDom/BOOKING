@@ -8,7 +8,7 @@ namespace Bookme.IHelper
         List<CommonDropDown> DropDownOfGender();
         List<Category> DropDownOfCategory();
         Task<ApplicationUser>? FindByEmailAsync(string email);
-        Task<ApplicationUser> CreateUser(ApplicationUserViewModel userDetails);
+        Task<ApplicationUser> CreateUser(ApplicationUserViewModel userDetails, string base64);
 
         Task<ApplicationUser> CreateSuperAdmin(ApplicationUserViewModel superAdminDetails);
         //bool CheckIfAvailable(string userId);

@@ -2,6 +2,31 @@
 @{
     ViewData["Title"] = "Registration";
 }
+<style>
+    .edit-icon {
+        background-color: rgb(98 4 4 / 20%);
+        border: 1px solid #e3e3e3;
+        border-radius: 24px;
+        color: #bbb;
+        font-size: 12px;
+        line-height: 24px;
+        min-height: 26px;
+        width: 41px;
+    }
+
+        .edit-icon:hover {
+            background-color: #4a0000;
+            ;
+            border-color: #8080ff;
+            color: #fff;
+        }
+
+    .user-info li b {
+        margin-left: 10px; /* Adjust the value as needed */
+    }
+
+</style>
+
 <div class="container">
     <div class="mt-3">
         <div class="  text-center mt-5 p-5">
@@ -12,16 +37,23 @@
             
                 <div class="card-body shadow">
                     <form>
+                        <div class="card mx-auto col-6 p-5">
+                            <img class="card-img-top  mt-2 w-80" src="~/Images/dm.png" id="editShowPix">
+                            <div class="fileupload btn">
+                                <span class="btn-text"></span>
+                                <input id="uploadPix" class="upload" type="file">
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label style="border-color: #4a0000" for="firstName">First Name:</label>
+                                <label style="color: #4a0000" for="firstName">First Name:</label>
                                 <input type="text" style="border-color: #4a0000" class="form-control" id="firsName" placeholder="Enter first name" name="">
                                 </div>
                             </div>
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label style="border-color: #4a0000" for="lastName">Last Name:</label>
+                                <label style="color: #4a0000" for="lastName">Last Name:</label>
                                 <input type="text" style="border-color: #4a0000" class="form-control" id="lastName" placeholder="Enter last name" name="last name">
                                 </div>
                             </div>
@@ -29,14 +61,14 @@
                         <div class="row">
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label style="border-color: #4a0000" for="gender">Gender:</label>
+                                <label style="color: #4a0000" for="gender">Gender:</label>
                                 <select id="genderId" style="border-color: #4a0000" asp-items="@(new SelectList(ViewBag.Gender,"Id","Name"))" class="form-control bg-light custom-select">
                                 </select>
                                 </div>
                             </div>
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label class="text-white" for="address">Address:</label>
+                                <label style="color:#4a0000" for="address">Address:</label>
                                 <input type="text" style="border-color: #4a0000" class="form-control" id="enterAddress" placeholder="Enter address" name="address">
                                 </div>
                             </div>
@@ -55,7 +87,8 @@
                                 <input type="text" style="border-color: #4a0000" class="form-control" id="price" placeholder="Enter price" name="">
                                 </div>
                             </div>
-                        </div><div class="row">
+                        </div>
+                        <div class="row">
                             <div class="col-6 mt-3">
                             <div class="form-group">
                                 <label style="border-color: #4a0000" for="email">Email:</label>
@@ -72,13 +105,13 @@
                     <div class="row">
                         <div class="col-6 mt-3">
                             <div class="form-group">
-                                <label style="border-color: #4a0000" for="pwd">Music Specialization:</label>
+                                <label style="color: #4a0000" for="pwd">Music Specialization:</label>
                                 <input type="text" style="border-color: #4a0000" class="form-control" id="musicSpecialization" placeholder="Music Specialization" name="">
                             </div>
                         </div>
                         <div class="col-6 mt-3">
                             <div class="form-group">
-                                <label style="border-color: #4a0000" for="userName">User Name:</label>
+                                <label style="color: #4a0000" for="userName">User Name:</label>
                                 <input type="text" style="border-color: #4a0000" class="form-control" id="userName" placeholder="User Name" name="">
                             </div>
                         </div>
@@ -87,13 +120,13 @@
                         <div class="row">
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label style="border-color: #4a0000" for="pwd">password:</label>
+                                <label style="color: #4a0000" for="pwd">password:</label>
                                 <input type="password" style="border-color: #4a0000" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
                                 </div>
                             </div>
                             <div class="col-6 mt-3">
                                 <div class="form-group">
-                                <label style="border-color: #4a0000" for="confirm pwd">Confirm Password:</label>
+                                <label style="color: #4a0000" for="confirm pwd">Confirm Password:</label>
                                 <input type="password" style="border-color: #4a0000" class="form-control" id="confirmpwd" placeholder="Confirm password" name="pswd">
                                 </div>
                             </div>
@@ -101,16 +134,17 @@
                     <div class="row">
                         <div class="col-12 mt-3">
                             <div class="form-group">
-                                <label style="border-color: #4a0000" for="bio"> Bio:</label>
-                                <textarea class="form-control" style="border-color: #4a0000" id="bio" cols="5" rows="5"> </textarea>
+                                <label style="color: #4a0000" for="bio"> Bio:</label>
+                                <textarea class="form-control" style="border-color: #4a0000" id="bio" cols="5" rows="3"> </textarea>
                             </div>
                         </div>
                     </div>
                     
-                        <div class="text-center">
-                        <button type="button" class="btn text-white mt-3" style="background-color:#4a0000;" onclick="userDetails()"><b>Submit</b></button>
-                        </div>
+                       
                     </form>
+                        <div class="text-center">
+                    <button type="button" id="submit_btn" class="btn text-white mt-3" style="background-color:#4a0000;" onclick="userDetails()"><b>Submit</b></button>
+                        </div>
                 </div>
             </div>
     </div>
